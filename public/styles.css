@@ -1,0 +1,287 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family:'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+  }
+  
+  /* Navbar */
+  #navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #2D3436;
+    color: white;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  #navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #navbar ul li {
+    margin: 0 15px;
+  }
+  
+  #navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+  }
+  
+  #navbar ul li a:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Welcome Section */
+  #welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2D3436, #636E72);
+    text-align: center;
+    color: white;
+    animation: fadeIn 1.5s ease-in;
+  }
+  
+  #welcome-section h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    animation: bounceIn 2s infinite alternate;
+  }
+  
+  @keyframes bounceIn {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+  
+  #welcome-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 10px;
+  }
+  
+  /* Projects Section */
+  #projects {
+    padding: 50px 20px;
+    background-color: #ffffff;
+  }
+  
+  #projects h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #D63031;
+  }
+  
+  .project-tile {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .project-tile:hover {
+    transform: translateY(-10px);
+  }
+  
+  .project-tile h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-tile p {
+    margin-bottom: 15px;
+  }
+  
+  .project-tile a {
+    display: inline-block;
+    color: #D63031;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom-color 0.3s;
+  }
+  
+  .project-tile a:hover {
+    color: #ff4757;
+    border-bottom-color: #ff6347;
+  }
+  
+  /* Contact Section */
+  #contact {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f5f5f5;
+  }
+  
+  #contact h2 {
+    font-size: 2rem;
+    color: #2D3436;
+    margin-bottom: 15px;
+  }
+  
+  #profile-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #D63031;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  #profile-link:hover {
+    background-color: #ff4757;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Media Query */
+  @media (max-width: 600px) {
+    #welcome-section h1 {
+      font-size: 2rem;
+    }
+  
+    .project-tile {
+      width: 90%;
+    }
+  }
+  
+  /* Socials if it works */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.social-icon {
+    color: #2D3436;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.social-icon span {
+    font-size: 16px;
+}
+
+.social-icon:hover {
+    color: #D63031;
+    transform: translateY(-3px);
+}
+
+/* Specific hover colors */
+.social-icon.linkedin:hover {
+    color: #0077b5;
+}
+
+.social-icon.instagram:hover {
+    color: #e4405f;
+}
+
+.social-icon.email:hover {
+    color: #D63031;
+}
+
+.social-icon.github:hover {
+    color: #6e0208;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+  }
+
+  .close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    background-color: #D63031;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .contact-form button:hover {
+    background-color: #ff4757;
+  }

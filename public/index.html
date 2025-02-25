@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello D!</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#welcome-section">Welcome</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="welcome-section">
+    <h1>Hello! I'm Derek</h1>
+    <p>A web dude!</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Creations</h2>
+    <div class="project-tile">
+      <h3>🚀 Project 1</h3>
+      <p>This project is all about speed and innovation!</p>
+      <a href="https://github.com/yourusername/project1" target="_blank">Check it out!</a>
+    </div>
+    <div class="project-tile">
+      <h3>🎨 Project 2</h3>
+      <p>Creativity meets functionality in this project.</p>
+      <a href="https://github.com/yourusername/project2" target="_blank">See the magic!</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Get In Touch 💌</h2>
+    <p>Want to collaborate or just say hi? Drop a message below</p>
+    <a id="profile-link" href="javascript:void(0);" onclick="openModal()">Wassssuppp!</a>
+  </section>
+
+   <!-- Modal (Pop-up form) -->
+   <div id="contact-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Contact Me</h2>
+        <button class="close-btn" onclick="closeModal()">×</button>
+      </div>
+      <form action="https://formspree.io/f/xyzypabz" method="POST" class="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Socials-->
+  <div class="social-links">
+    <a href="mailto:derekkloh@gmail.com" class="social-icon email">
+        <i class="far fa-envelope"></i>
+        <span>Email</span>
+    </a>
+    
+    <a href="https://linkedin.com/in/yourprofile" class="social-icon linkedin">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+    </a>
+    
+    <a href="https://instagram.com/yourprofile" class="social-icon instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+    </a>
+
+    <!-- GitHub Link -->
+    <a href="https://github.com/yourusername" class="social-icon github" target="_blank">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+    </a>
+</div>
+<script>
+    // Function to open the modal (pop-up)
+    function openModal() {
+      document.getElementById('contact-modal').style.display = 'flex';
+    }
+
+    // Function to close the modal (pop-up)
+    function closeModal() {
+      document.getElementById('contact-modal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
