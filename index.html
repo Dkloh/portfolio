@@ -21,11 +21,30 @@
     </ul>
   </nav>
 
-  <!-- Welcome Section -->
+  <!-- Welcome Section 
   <section id="welcome-section">
     <h1>Hello! I'm Derek</h1>
     <p>A web dude!</p>
-  </section>
+  </section> -->
+
+  <!-- New Welcome Section -->
+  <section id="welcome-section">
+  <canvas id="drawboard"></canvas>
+  <div class="color-picker-container">
+    <button class="color-btn" id="color-red" style="background-color: #FF6B6B;" data-color="rgb(255,107,107)"></button>
+    <button class="color-btn" id="color-blue" style="background-color: #4ECDC4;" data-color="rgb(78,205,196)"></button>
+    <button class="color-btn" id="color-yellow" style="background-color: #FFE66D;" data-color="rgb(255,230,109)"></button>
+    <button class="color-btn" id="color-green" style="background-color: #95E1D3;" data-color="rgb(149,225,211)"></button>
+    <button class="color-btn active" id="color-white" style="background-color: #FFFFFF;" data-color="rgb(255,255,255)"></button>
+    <button class="color-btn" id="color-pink" style="background-color: #FF1493;" data-color="rgb(255,20,147)"></button>
+    <button id="clear-board">Clear</button>
+  </div>
+  <div class="overlay-text">
+    <h1>Hello! I'm Derek</h1>
+    <p>A web dude!</p>
+  </div>
+</section>
+
 
   <!-- Projects Section -->
   <section id="projects">
@@ -107,5 +126,7 @@
     }
   </script>
 
+  <script src="script.js"></script>
+  
 </body>
 </html>
