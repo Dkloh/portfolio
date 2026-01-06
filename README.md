@@ -1,21 +1,34 @@
-# Welcome to My Portfolio
+I'm a freelance web developer who builds fast, responsive websites for businesses and individuals. I love turning ideas into clean, functional web experiences.
 
-Hello! I'm D, a  Freelance Web Developer
-## Skills
-- **Web Development**: HTML, CSS, JavaScript, React, Next.js
-- **Design Tools**: Figma, Canva
-- **Deployment**: CI/CD with Vercel
-- **SEO Optimization**: Enhancing website visibility and performance
+## What I Do
 
-## Projects
-Here are a few fun projects:
-- **[Portfolio](https://tinyurl.com/xfxn9eu3)**: Adding more projects, these are not client sites.
-- **[Fitness Challenger](https://tinyurl.com/3tdtm5cv)**: 30 day challenge to get started on making a habit.  
-- **[Atmoshperic Conditions](https://tinyurl.com/3jt2yb6c)**: Weather is everywhere. 
+I specialize in building modern web applications with a focus on performance and user experience:
 
-## Get in Touch
-Feel free to reach out to me for collaboration or inquiries:
-- Email: [derekkloh@gmail.com]
-- LinkedIn: [Profile](https://tinyurl.com/mryxsktk)
+- **Frontend Development**: React, Next.js, JavaScript (ES6+)
+- **Styling & Design**: Tailwind CSS, responsive design, Figma
+- **Deployment & Optimization**: Vercel, Netlify, CI/CD pipelines
+- **SEO & Performance**: Core Web Vitals, accessibility, speed optimization
 
-Cheers!
+## Recent Projects
+
+### [Deirdre's Private Chef & Catering](https://deirdres.netlify.app/)
+Landing page for a private chef business featuring responsive design, auto-rotating gallery, and contact form integration. Built with React and Tailwind CSS.  
+**Tech**: React, Tailwind CSS, Lucide Icons
+
+## Let's Work Together
+
+I'm available for:
+- Custom website development
+- Landing pages and business sites
+- React/Next.js applications
+- Website redesigns and optimization
+- Freelance and contract work
+
+**Email**: derekkloh@gmail.com  
+**LinkedIn**: [linkedin.com/in/derekkloh](https://linkedin.com/in/derekkloh)  
+**Portfolio**: [View live projects](https://dkloh.github.io/portfolio/)
+
+---
+
+Open to freelance projects and full-time opportunities  
+Based in New York City  
