@@ -1,134 +1,1025 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello D!</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome CDN for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Derek Kloh — Developer & Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --cream: #F7F4EF;
+      --ink: #1A1714;
+      --charcoal: #3D3935;
+      --warm-gray: #8A8480;
+      --accent: #C8502A;
+      --accent-light: #E8937A;
+      --card-bg: #FFFFFF;
+      --border: #E4DED6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      background: rgba(247,244,239,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 48px 80px;
+      gap: 60px;
+      position: relative;
+    }
+
+    .hero-text { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--charcoal);
+      background: white;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--charcoal);
+      padding: 14px 0;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── CANVAS PANEL ── */
+    .hero-canvas-panel {
+      position: relative;
+      height: 520px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--ink);
+      box-shadow: 0 32px 80px rgba(26,23,20,0.18);
+    }
+
+    #spray-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+    }
+
+    .canvas-overlay-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .canvas-overlay-text .photo-placeholder {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 2px dashed rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .canvas-overlay-text p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .canvas-controls {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .color-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+
+    .color-dot:hover { transform: scale(1.2); }
+    .color-dot.active { border-color: white; transform: scale(1.15); }
+
+    .canvas-clear {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .canvas-clear:hover {
+      color: white;
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .canvas-hint {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      pointer-events: none;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 100px 48px; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--warm-gray);
+      max-width: 520px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: var(--charcoal);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .about-text p strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .skill-group h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .skill-group li {
+      font-size: 0.875rem;
+      color: var(--charcoal);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-group li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      flex-shrink: 0;
+    }
+
+    /* ── PROJECTS ── */
+    #projects { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(26,23,20,0.1);
+    }
+
+    .project-card.featured {
+      grid-column: span 2;
+    }
+
+    .project-thumb {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card.featured .project-thumb { height: 220px; }
+
+    .project-thumb-nyc-next { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); }
+    .project-thumb-nyc-py { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+    .project-thumb-ats { background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%); }
+    .project-thumb-chef { background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 100%); }
+    .project-thumb-camp { background: linear-gradient(135deg, #14532d 0%, #15803d 100%); }
+    .project-thumb-rest { background: linear-gradient(135deg, #713f12 0%, #d97706 100%); }
+
+    .project-icon {
+      font-size: 3.5rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+    }
+
+    .project-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--warm-gray);
+      line-height: 1.6;
+      font-weight: 300;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .stack-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--charcoal);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .project-link:hover { opacity: 0.7; }
+
+    .project-link.secondary {
+      color: var(--warm-gray);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--ink);
+      color: white;
+    }
+
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #contact .section-label { justify-content: center; color: var(--accent-light); }
+    #contact .section-label::before { background: var(--accent-light); }
+
+    #contact .section-title { color: white; }
+
+    .contact-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 48px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .contact-link:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .contact-link.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .contact-link.primary:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 20px; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        padding: 100px 24px 60px;
+        gap: 40px;
+      }
+
+      .hero-canvas-panel { height: 360px; }
+
+      section { padding: 70px 24px; }
+      #projects { padding: 70px 24px; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      h1 { font-size: 2.5rem; }
+      .projects-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav id="navbar">
-    <ul>
-      <li><a href="#welcome-section">Welcome</a></li>
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Derek Kloh</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Welcome Section 
-  <section id="welcome-section">
-    <h1>Hello! I'm Derek</h1>
-    <p>A web dude!</p>
-  </section> -->
-
-  <!-- New Welcome Section -->
-  <section id="welcome-section">
-  <canvas id="drawboard"></canvas>
-  <div class="color-picker-container">
-    <button class="color-btn" id="color-red" style="background-color: #FF6B6B;" data-color="rgb(255,107,107)"></button>
-    <button class="color-btn" id="color-blue" style="background-color: #4ECDC4;" data-color="rgb(78,205,196)"></button>
-    <button class="color-btn" id="color-yellow" style="background-color: #FFE66D;" data-color="rgb(255,230,109)"></button>
-    <button class="color-btn" id="color-green" style="background-color: #95E1D3;" data-color="rgb(149,225,211)"></button>
-    <button class="color-btn active" id="color-white" style="background-color: #FFFFFF;" data-color="rgb(255,255,255)"></button>
-    <button class="color-btn" id="color-pink" style="background-color: #FF1493;" data-color="rgb(255,20,147)"></button>
-    <button id="clear-board">Clear</button>
-  </div>
-  <div class="overlay-text">
-    <h1>Hello! I'm Derek</h1>
-    <p>A web dude!</p>
-  </div>
-</section>
-
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>My Creations</h2>
-    <div class="project-tile">
-      <h3>Atmospheric Conditions App</h3>
-      <p>A responsive weather app built with React and Tailwind CSS. Features real time data, an interactive map, and dynamic backgrounds.</p>
-      <a href="https://weather-app-lemon-nu-39.vercel.app/" target="_blank">Live Link!</a>
-      <a href="https://github.com/Dkloh/weather-app" target="_blank">GitHub Repo</a>
-    </div>
-    <div class="project-tile">
-      <h3>30-Day Fitness Challenge App</h3>
-      <p>A React app for tracking a 30-day fitness tracker. Log daily goals, unlock rewards, and save progress with Firebase. Stay consistent and motivated!</p>
-      <a href="https://fitness-challenge-tracker.vercel.app" target="_blank">Click me!</a>
-      <a href="https://github.com/Dkloh/fitness-challenge-tracker" target="_blank">GitHub Repo</a>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Get In Touch 💌</h2>
-    <p>Want to collaborate or just say hi? Drop a message below</p>
-    <a id="profile-link" href="javascript:void(0);" onclick="openModal()">Wassssuppp!</a>
-  </section>
-
-   <!-- Modal (Pop-up form) -->
-   <div id="contact-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Contact Me</h2>
-        <button class="close-btn" onclick="closeModal()">×</button>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text fade-in">
+      <div class="hero-eyebrow">Available for work</div>
+      <h1>Developer.<br><em>Data analyst.</em><br>New Yorker.</h1>
+      <p class="hero-bio">
+        10+ years in NYC real estate gave me deep domain expertise. Now I build the tools — full stack web apps, data pipelines, and interactive dashboards — that make sense of complex markets.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">React / Next.js</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">CompTIA A+</span>
       </div>
-      <form action="https://formspree.io/f/xyzypabz" method="POST" class="contact-form">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects ↓</a>
+        <a href="https://github.com/Dkloh" target="_blank" class="btn-ghost">GitHub →</a>
+        <a href="https://linkedin.com/in/derekkloh" target="_blank" class="btn-ghost">LinkedIn →</a>
+      </div>
     </div>
-  </div>
 
+    <!-- Interactive canvas panel -->
+    <div class="hero-canvas-panel fade-in" style="transition-delay: 0.2s;">
+      <canvas id="spray-canvas"></canvas>
+      <div class="canvas-overlay-text">
+        <div class="photo-placeholder">👤</div>
+        <p>Draw something</p>
+      </div>
+      <span class="canvas-hint">Interactive ↗</span>
+      <div class="canvas-controls">
+        <div class="color-dot active" style="background:#E8937A;" data-color="rgba(232,147,122,0.9)"></div>
+        <div class="color-dot" style="background:#7DD3C8;" data-color="rgba(125,211,200,0.9)"></div>
+        <div class="color-dot" style="background:#F4D03F;" data-color="rgba(244,208,63,0.9)"></div>
+        <div class="color-dot" style="background:#FFFFFF;" data-color="rgba(255,255,255,0.7)"></div>
+        <button class="canvas-clear" id="clear-canvas">Clear</button>
+      </div>
+    </div>
+  </section>
 
-  <!-- Socials-->
-  <div class="social-links">
-    <a href="mailto:derekkloh@gmail.com" class="social-icon email" target="_blank">
-        <i class="far fa-envelope"></i>
-        <span>Email</span>
-    </a>
-    
-    <a href="https://linkedin.com/in/derekkloh" class="social-icon linkedin" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        <span>LinkedIn</span>
-    </a>
-    
-    <a href="https://instagram.com/dkloh" class="social-icon instagram" target="_blank">
-        <i class="fab fa-instagram"></i>
-        <span>Instagram</span>
-    </a>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Built different.</h2>
+        <p>I spent over a decade as a real estate agent and property manager in New York City — closing deals, managing portfolios, and reading markets. Then I taught myself to code.</p>
+        <p>That combination is rare. I don't just write code — I understand the <strong>business problems</strong> the code is meant to solve. When I built the NYC Real Estate Dashboard, I already knew which metrics mattered and why.</p>
+        <p>Currently pursuing <strong>CompTIA Network+</strong> and <strong>Security+</strong> certifications. Open to roles in web development, data analytics, or IT.</p>
+      </div>
+      <div class="skills-grid fade-in" style="transition-delay:0.15s;">
+        <div class="skill-group">
+          <h4>Frontend</h4>
+          <ul>
+            <li>React / Next.js</li>
+            <li>TypeScript</li>
+            <li>Tailwind CSS</li>
+            <li>HTML / CSS / JS</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Data</h4>
+          <ul>
+            <li>Python / pandas</li>
+            <li>SQL / SQLite</li>
+            <li>Looker Studio</li>
+            <li>REST APIs</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <ul>
+            <li>Git / GitHub</li>
+            <li>Vercel / Netlify</li>
+            <li>VS Code</li>
+            <li>Jupyter</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Certs</h4>
+          <ul>
+            <li>CompTIA A+</li>
+            <li>Responsive Web Design</li>
+            <li>Pursuing Net+</li>
+            <li>Pursuing Sec+</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- GitHub Link -->
-    <a href="https://github.com/Dkloh" class="social-icon github" target="_blank">
-        <i class="fab fa-github"></i>
-        <span>GitHub</span>
-    </a>
-</div>
-<script>
-    // Function to open the modal (pop-up)
-    function openModal() {
-      document.getElementById('contact-modal').style.display = 'flex';
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header fade-in">
+      <div>
+        <div class="section-label">Work</div>
+        <h2 class="section-title">Selected Projects</h2>
+      </div>
+      <a href="https://github.com/Dkloh" target="_blank" class="btn-ghost">All repos →</a>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- FEATURED: NYC Next.js -->
+      <div class="project-card featured fade-in">
+        <div class="project-thumb project-thumb-nyc-next">
+          <span class="project-icon">🏙️</span>
+          <span class="project-badge">Live</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">NYC Real Estate Market Dashboard</div>
+          <div class="project-desc">Full stack analytics dashboard pulling live data from NYC Open Data API. Features rolling 12-month trends, IQR outlier filtering, borough selector, and a sortable neighborhood breakdown table.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Next.js</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Tailwind</span>
+            <span class="stack-tag">Recharts</span>
+            <span class="stack-tag">Vercel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://nyc-realestate-dashboard.vercel.app/" target="_blank" class="project-link">Live Demo ↗</a>
+            <a href="https://github.com/Dkloh/nyc-realestate-dashboard" target="_blank" class="project-link secondary">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- NYC Python -->
+      <div class="project-card fade-in" style="transition-delay:0.1s;">
+        <div class="project-thumb project-thumb-nyc-py">
+          <span class="project-icon">📊</span>
+          <span class="project-badge">Looker</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">NYC RE Trends — Data Pipeline</div>
+          <div class="project-desc">End-to-end data pipeline analyzing 51,358 transactions totaling $91B. Python data ingestion, SQL analysis with window functions, Looker Studio visualization.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">pandas</span>
+            <span class="stack-tag">SQL</span>
+            <span class="stack-tag">SQLite</span>
+            <span class="stack-tag">Looker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Dkloh/nyc-re-trends" target="_blank" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ATS Tool -->
+      <div class="project-card fade-in" style="transition-delay:0.15s;">
+        <div class="project-thumb project-thumb-ats">
+          <span class="project-icon">🔍</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">ATS Job Search Generator</div>
+          <div class="project-desc">Google dork query generator for 18 ATS platforms. Built to bypass LinkedIn and find jobs directly on company career pages. A tool I built for my own job search.</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Tailwind</span>
+            <span class="stack-tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Dkloh" target="_blank" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deirdre's -->
+      <div class="project-card fade-in" style="transition-delay:0.2s;">
+        <div class="project-thumb project-thumb-chef">
+          <span class="project-icon">🍽️</span>
+          <span class="project-badge">Client</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Private Chef & Catering Site</div>
+          <div class="project-desc">Client website for a NYC private chef. Features auto-rotating gallery, service showcase, booking inquiry form, and mobile-responsive design.</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Tailwind</span>
+            <span class="stack-tag">Lucide</span>
+            <span class="stack-tag">Netlify</span>
+          </div>
+          <div class="project-links">
+            <a href="https://deirdres.netlify.app/" target="_blank" class="project-link">Live Demo ↗</a>
+            <a href="https://github.com/Dkloh/deirdres-website" target="_blank" class="project-link secondary">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campsite -->
+      <div class="project-card fade-in" style="transition-delay:0.25s;">
+        <div class="project-thumb project-thumb-camp">
+          <span class="project-icon">🏕️</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Campsite Availability Monitor</div>
+          <div class="project-desc">Selenium-based automation that monitors Hither Hills State Park reservations and sends desktop notifications when availability opens up.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Selenium</span>
+            <span class="stack-tag">WebDriver</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Dkloh" target="_blank" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurant Map -->
+      <div class="project-card fade-in" style="transition-delay:0.3s;">
+        <div class="project-thumb project-thumb-rest">
+          <span class="project-icon">🗺️</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">NYC Restaurant Inspection Map</div>
+          <div class="project-desc">Interactive Leaflet map of NYC restaurant health grades. Color-coded markers (A/B/C), zip code and name search, built on DOHMH open data.</div>
+          <div class="project-stack">
+            <span class="stack-tag">Leaflet.js</span>
+            <span class="stack-tag">PapaParse</span>
+            <span class="stack-tag">JavaScript</span>
+            <span class="stack-tag">NYC Open Data</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Dkloh" target="_blank" class="project-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner fade-in">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's work together.</h2>
+      <p class="contact-sub">
+        Open to full-time roles, freelance projects, and collaborations.<br>
+        Web development, data analytics, or IT — let's talk.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:derekkloh@gmail.com" class="contact-link primary">✉ derekkloh@gmail.com</a>
+        <a href="https://linkedin.com/in/derekkloh" target="_blank" class="contact-link">LinkedIn ↗</a>
+        <a href="https://github.com/Dkloh" target="_blank" class="contact-link">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Derek Kloh</p>
+    <div class="footer-links">
+      <a href="https://github.com/Dkloh" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/derekkloh" target="_blank">LinkedIn</a>
+      <a href="mailto:derekkloh@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    // ── SPRAY CANVAS ──
+    const canvas = document.getElementById('spray-canvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    let brushColor = 'rgba(232,147,122,0.9)';
+    const sprayRadius = 20;
+    const sprayDensity = 25;
+
+    function resizeCanvas() {
+      const panel = canvas.parentElement;
+      canvas.width = panel.offsetWidth;
+      canvas.height = panel.offsetHeight;
     }
 
-    // Function to close the modal (pop-up)
-    function closeModal() {
-      document.getElementById('contact-modal').style.display = 'none';
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
     }
+
+    function spray(pos) {
+      ctx.fillStyle = brushColor;
+      for (let i = 0; i < sprayDensity; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const dist = Math.random() * sprayRadius;
+        const x = pos.x + Math.cos(angle) * dist;
+        const y = pos.y + Math.sin(angle) * dist;
+        const size = Math.random() * 2 + 0.5;
+        ctx.fillRect(x, y, size, size);
+      }
+    }
+
+    canvas.addEventListener('pointerdown', e => {
+      drawing = true;
+      canvas.setPointerCapture(e.pointerId);
+      spray(getPos(e));
+    });
+
+    canvas.addEventListener('pointermove', e => {
+      if (drawing) spray(getPos(e));
+    });
+
+    canvas.addEventListener('pointerup', () => drawing = false);
+    canvas.addEventListener('pointercancel', () => drawing = false);
+
+    // Color dots
+    document.querySelectorAll('.color-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+        brushColor = dot.dataset.color;
+      });
+    });
+
+    // Clear
+    document.getElementById('clear-canvas').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // ── SCROLL ANIMATIONS ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
-
-  <script src="script.js"></script>
-  
 </body>
 </html>
